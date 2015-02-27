@@ -1,0 +1,33 @@
+%h1
+  %center Répartition des futurs candidats
+  .lead.text-center You want to be WILD, Keep calm & POSTUL
+
+
+= map(:center => {:latlng => [47.465, 2.878],:zoom => 6}, :markers => @markers )   
+
+.row
+  .col-md-4.text-center
+    %h3
+      Age moyen des postulants
+      %br= @moyennedage 
+
+  .col-md-4.text-center
+    %h3
+      \% des postulants ayant besoin d'une bourse
+      %br= @bourse
+  .col-md-4.text-center
+    %h3
+      Nombre de postulants
+      %br= @compteur
+%p= @inscription_par_date
+
+/ %table.table.table-bordered.table-striped
+/   %thead
+/     %tr
+/       %th Date création
+/       %th Mois création
+/   %tbody
+/     %tr=@inscription_par_date.each do |cle, valeur| 
+/       %td = cle
+/       %td = valeur
+/= area_chart Eleve.inscription_par_date
